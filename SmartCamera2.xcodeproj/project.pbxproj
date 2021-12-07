@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE16979A275F983900DA4D65 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */; };
 		CE6D40DB275EC91600248313 /* SmartCamera2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40DA275EC91600248313 /* SmartCamera2App.swift */; };
-		CE6D40DD275EC91600248313 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40DC275EC91600248313 /* ContentView.swift */; };
+		CE6D40DD275EC91600248313 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40DC275EC91600248313 /* CameraView.swift */; };
 		CE6D40DF275EC91700248313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6D40DE275EC91700248313 /* Assets.xcassets */; };
 		CE6D40E2275EC91700248313 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6D40E1275EC91700248313 /* Preview Assets.xcassets */; };
 		CE6D40EC275EC91700248313 /* SmartCamera2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40EB275EC91700248313 /* SmartCamera2Tests.swift */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		CE6D40D7275EC91600248313 /* SmartCamera2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCamera2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6D40DA275EC91600248313 /* SmartCamera2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCamera2App.swift; sourceTree = "<group>"; };
-		CE6D40DC275EC91600248313 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE6D40DC275EC91600248313 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CE6D40DE275EC91700248313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6D40E1275EC91700248313 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE6D40E7275EC91700248313 /* SmartCamera2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCamera2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,8 +96,9 @@
 		CE6D40D9275EC91600248313 /* SmartCamera2 */ = {
 			isa = PBXGroup;
 			children = (
+				CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */,
 				CE6D40DA275EC91600248313 /* SmartCamera2App.swift */,
-				CE6D40DC275EC91600248313 /* ContentView.swift */,
+				CE6D40DC275EC91600248313 /* CameraView.swift */,
 				CE6D40DE275EC91700248313 /* Assets.xcassets */,
 				CE6D40E0275EC91700248313 /* Preview Content */,
 			);
@@ -257,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6D40DD275EC91600248313 /* ContentView.swift in Sources */,
+				CE6D40DD275EC91600248313 /* CameraView.swift in Sources */,
+				CE16979A275F983900DA4D65 /* SqueezeNet.mlmodel in Sources */,
 				CE6D40DB275EC91600248313 /* SmartCamera2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +426,7 @@
 				DEVELOPMENT_TEAM = CV9R6U5W9V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +457,7 @@
 				DEVELOPMENT_TEAM = CV9R6U5W9V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
