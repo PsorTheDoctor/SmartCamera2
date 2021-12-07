@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1344BE27601E6400DDF9B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344BD27601E6400DDF9B6 /* ContentView.swift */; };
+		CE1344C0276020D100DDF9B6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344BF276020D100DDF9B6 /* HomeView.swift */; };
+		CE1344C2276020E800DDF9B6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344C1276020E800DDF9B6 /* SettingsView.swift */; };
 		CE16979A275F983900DA4D65 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */; };
 		CE6D40DB275EC91600248313 /* SmartCamera2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40DA275EC91600248313 /* SmartCamera2App.swift */; };
 		CE6D40DD275EC91600248313 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40DC275EC91600248313 /* CameraView.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1344BD27601E6400DDF9B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE1344BF276020D100DDF9B6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CE1344C1276020E800DDF9B6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		CE6D40D7275EC91600248313 /* SmartCamera2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCamera2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6D40DA275EC91600248313 /* SmartCamera2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCamera2App.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 		CE6D40D9275EC91600248313 /* SmartCamera2 */ = {
 			isa = PBXGroup;
 			children = (
+				CE1344BF276020D100DDF9B6 /* HomeView.swift */,
+				CE1344C1276020E800DDF9B6 /* SettingsView.swift */,
+				CE1344BD27601E6400DDF9B6 /* ContentView.swift */,
 				CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */,
 				CE6D40DA275EC91600248313 /* SmartCamera2App.swift */,
 				CE6D40DC275EC91600248313 /* CameraView.swift */,
@@ -262,6 +271,9 @@
 			files = (
 				CE6D40DD275EC91600248313 /* CameraView.swift in Sources */,
 				CE16979A275F983900DA4D65 /* SqueezeNet.mlmodel in Sources */,
+				CE1344BE27601E6400DDF9B6 /* ContentView.swift in Sources */,
+				CE1344C2276020E800DDF9B6 /* SettingsView.swift in Sources */,
+				CE1344C0276020D100DDF9B6 /* HomeView.swift in Sources */,
 				CE6D40DB275EC91600248313 /* SmartCamera2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

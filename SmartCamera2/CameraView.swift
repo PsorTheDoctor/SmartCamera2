@@ -4,7 +4,6 @@
 //
 //  Created by Adam Wolkowycki on 06/12/2021.
 //
-
 import SwiftUI
 import AVFoundation
 import Vision
@@ -14,38 +13,38 @@ struct CameraView: View {
     @StateObject var camera = CameraModel()
     
     var body: some View {
-        ZStack {
-            CameraPreview(camera: camera).ignoresSafeArea(.all, edges: .all)
-            VStack {
-                if camera.isTaken {
-                    Spacer()
-                    Button(action: camera.retake, label: {
-                        Image(systemName: "arrow.triangle.2.circlepath.camera")
-                            .foregroundColor(.black)
-                            .padding()
-                            .background(Color.white)
-                            .clipShape(Circle())
-                    }).padding(.trailing, 10)
-                }
-                Spacer()
-                HStack {
+        NavigationView {
+            ZStack {
+                CameraPreview(camera: camera).ignoresSafeArea(.all, edges: .all)
+                VStack {
                     if camera.isTaken {
-                        
-                    } else {
-                        Button(action: camera.takePhoto, label: {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.white)
-                                    .frame(width: 65, height: 65)
-                                Circle()
-                                    .stroke(Color.white, lineWidth: 2)
-                                    .frame(width: 75, height: 75)
-                            }
-                        })
+                        Spacer()
+                        Button(action: camera.retake, label: {
+                            Image(systemName: "arrow.triangle.2.circlepath.camera")
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(Color.white)
+                                .clipShape(Circle())
+                        }).padding(.trailing, 10)
                     }
-                }.frame(height: 75)
-            }
-        }.onAppear(perform: camera.check)
+                    Spacer()
+                    HStack {
+                        if !camera.isTaken {
+                            Button(action: camera.takePhoto, label: {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color.white)
+                                        .frame(width: 65, height: 65)
+                                    Circle()
+                                        .stroke(Color.white, lineWidth: 2)
+                                        .frame(width: 75, height: 75)
+                                }
+                            })
+                        }
+                    }.frame(height: 75)
+                }
+            }.onAppear(perform: camera.check)
+        }
     }
 }
 
@@ -106,18 +105,18 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         }
     }
     
-    func recognize() {
-        
-        let config = MLModelConfiguration()
-        guard let model = try? VNCoreMLModel(for: SqueezeNet(configuration: config).model) else { return }
-        
-        let request = VNCoreMLRequest(model: model) { (finishedReq, error) in
-            guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
-            guard let observation = results.first else { return }
-            
-            self.speak(text: observation.identifier)
-        }
-    }
+//    func recognize() {
+//
+//        let config = MLModelConfiguration()
+//        guard let model = try? VNCoreMLModel(for: SqueezeNet(configuration: config).model) else { return }
+//
+//        let request = VNCoreMLRequest(model: model) { (finishedReq, error) in
+//            guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
+//            guard let observation = results.first else { return }
+//
+//            self.speak(text: observation.identifier)
+//        }
+//    }
     
     func speak(text: String) {
         let synthesizer = AVSpeechSynthesizer()
