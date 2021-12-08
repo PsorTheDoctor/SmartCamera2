@@ -82,10 +82,13 @@ struct HomeView: View {
                     
                 List {
                     ForEach(viewModel.items, id: \.self) { item in
-                        HStack {
-                            URLImage(urlString: item.image)
-                            Text(item.name).bold()
-                        }.padding()
+                        
+                        if item.name.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
+                            HStack {
+                                URLImage(urlString: item.image)
+                                Text(item.name).bold()
+                            }.padding()
+                        }
                     }
                 }.onAppear {
                     viewModel.fetch()
