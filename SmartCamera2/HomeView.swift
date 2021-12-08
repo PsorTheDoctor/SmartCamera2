@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct URLImage: View {
+    
     let urlString: String
     
     @State var data: Data?
     
     var body: some View {
+        
         if let data = data, let uiimage = UIImage(data: data) {
             Image(uiImage: uiimage)
                 .resizable()
@@ -52,7 +54,6 @@ class ViewModel: ObservableObject {
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             
             guard let data = data, error == nil else { return }
-            
             do {
                 let items = try JSONDecoder().decode([Item].self, from: data)
                 
@@ -69,19 +70,75 @@ class ViewModel: ObservableObject {
 
 struct HomeView: View {
     
+    @State var searchText = ""
+    @State var isSearching = false
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.items, id: \.self) { item in
-                    HStack {
-                        URLImage(urlString: item.image)
-                        Text(item.name).bold()
-                    }.padding(3)
+            // ScrollView {
+            VStack {
+                SearchBar(searchText: $searchText, isSearching: $isSearching)
+                    
+                List {
+                    ForEach(viewModel.items, id: \.self) { item in
+                        HStack {
+                            URLImage(urlString: item.image)
+                            Text(item.name).bold()
+                        }.padding()
+                    }
+                }.onAppear {
+                    viewModel.fetch()
                 }
-            }.onAppear {
-                viewModel.fetch()
+            }
+        }.navigationTitle("Explore")
+        // }
+    }
+}
+
+struct SearchBar: View {
+    
+    @Binding var searchText: String
+    @Binding var isSearching: Bool
+    
+    var body: some View {
+        HStack {
+            HStack {
+                TextField("Search", text: $searchText).padding(.leading, 24)
+            }
+            .padding()
+            .background(Color(.systemGray5))
+            .cornerRadius(6)
+            .padding(.horizontal)
+            .onTapGesture(perform: { isSearching = true })
+            .overlay(
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    Spacer()
+                    if isSearching {
+                        Button(action: { searchText = "" }, label: {
+                            Image(systemName: "xmark.circle.fill").padding(.vertical)
+                        })
+                    }
+                }.padding(.horizontal, 32).foregroundColor(.gray)
+            )
+            .transition(.move(edge: .trailing))
+            .animation(.spring())
+            
+            if isSearching {
+                Button(action: {
+                    isSearching = false
+                    searchText = ""
+                    
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    
+                }, label: {
+                    Text("Cancel")
+                        .padding(.trailing)
+                        .padding(.leading, 0)
+                })
+                .transition(.move(edge: .trailing))
+                .animation(.spring())
             }
         }
     }
