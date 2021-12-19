@@ -19,7 +19,8 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Home")
             }
-            CameraView().tabItem {
+            CameraView(classifier: ImageClassifier(),
+                       speechService: SpeechService()).tabItem {
                 Image(systemName: "camera")
                 Text("Camera")
             }
