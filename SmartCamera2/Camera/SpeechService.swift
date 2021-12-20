@@ -2,7 +2,7 @@
 //  SpeechService.swift
 //  SmartCamera2
 //
-//  Created by USER on 19/12/2021.
+//  Created by Adam Wolkowycki on 19/12/2021.
 //
 
 import SwiftUI

@@ -9,20 +9,28 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var item = Item(title: "title", primaryImageSmall: "primaryImageSmall")
+    @State var item = Item(title: "", primaryImageSmall: "", artistDisplayName: "", creditLine: "")
+    @State var itemList = [Item]()
     @State var searchText = ""
     @State var isSearching = false
     
-    func getData(index: Int) {
+    func fetchData() {
+        for i in 10500...10599 {
+            fetchItem(index: i)
+        }
+    }
+    
+    func fetchItem(index: Int) {
         let urlString = "https://collectionapi.metmuseum.org/public/collection/v1/objects/\(index)"
         let url = URL(string: urlString)
+        var decodedData = Item(title: "", primaryImageSmall: "", artistDisplayName: "", creditLine: "")
         
         URLSession.shared.dataTask(with: url!) { data, _, error in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let decodedData = try decoder.decode(Item.self, from: data)
-                    self.item = decodedData
+                    decodedData = try decoder.decode(Item.self, from: data)
+                    self.itemList.append(decodedData)
                 } catch {
                     print("Error")
                 }
@@ -34,15 +42,21 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 SearchBar(searchText: $searchText, isSearching: $isSearching)
-                Button("Refresh") { self.getData(index: 1000) }
-                
-                if item.title.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
-                    VStack {
-                        Text("\(item.title)")
-                        URLImage(urlString: item.primaryImageSmall)
+                List {
+                    ForEach(self.itemList, id: \.self) { elem in
+                        if elem.title.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
+                            if elem.primaryImageSmall != "" {
+                                VStack {
+                                    Text("\(elem.title)").bold()
+                                    URLImage(urlString: elem.primaryImageSmall)
+                                    Text("\(elem.artistDisplayName)")
+                                    Text("\(elem.creditLine)")
+                                }.padding(3)
+                            }
+                        }
                     }
-                }
-            }
-        }.navigationTitle("Explore")
+                }.onAppear { self.fetchData() }
+            }.navigationTitle("Explore")
+        }
     }
 }

@@ -21,7 +21,7 @@ struct URLImage: View {
                 .aspectRatio(contentMode: .fill)
                 .background(Color.gray)
         } else {
-            Image(systemName: "camera")
+            Image(systemName: "photo")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .background(Color.gray)
