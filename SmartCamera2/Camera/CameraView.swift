@@ -9,9 +9,13 @@ import SwiftUI
 
 struct CameraView: View {
     
+    let mint = Color(red: 0.2, green: 0.6, blue: 0.4)
+    
     @State var isPresenting: Bool = false
     @State var uiImage: UIImage?
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    
+    @StateObject var camera = CameraModel()
     
     @ObservedObject var classifier: ImageClassifier
     @ObservedObject var speechService: SpeechService
@@ -24,36 +28,36 @@ struct CameraView: View {
                         isPresenting = true
                         sourceType = .photoLibrary
                     }
+                    .padding()
+                    .background(mint)
+                    .clipShape(Circle())
+                
                 Image(systemName: "camera")
                     .onTapGesture {
                         isPresenting = true
                         sourceType = .camera
                     }
+                    .padding()
+                    .background(mint)
+                    .clipShape(Circle())
             }
-            .font(.largeTitle)
-            .foregroundColor(.blue)
+            .foregroundColor(.white)
             
-            Rectangle()
-                .strokeBorder()
-                .foregroundColor(.yellow)
-                .overlay(
-                    Group {
-                        if uiImage != nil {
-                            Image(uiImage: uiImage!)
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                )
+            if uiImage != nil {
+                Image(uiImage: uiImage!)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                CameraPreview(camera: camera).ignoresSafeArea(.all, edges: .all)
+            }
+
             VStack {
                 Button(action: {
                     if uiImage != nil {
                         classifier.detect(uiImage: uiImage!)
                     }
                 }) {
-                    Image(systemName: "bolt.fill")
-                        .foregroundColor(.red)
-                        .font(.title)
+                    Text("")
                 }
                 Group {
                     if let imageClass = classifier.imageClass {
@@ -69,7 +73,7 @@ struct CameraView: View {
                 }
                 .font(.subheadline)
                 .padding()
-            }
+            }.onAppear(perform: camera.check)
         }
         .sheet(isPresented: $isPresenting) {
             ImagePicker(uiImage: $uiImage, isPresenting: $isPresenting, sourceType: $sourceType).onDisappear() {
@@ -83,7 +87,6 @@ struct CameraView: View {
                     }
                 }
             }
-        }
-        .padding()
+        }.padding()
     }
 }

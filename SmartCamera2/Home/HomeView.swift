@@ -15,7 +15,7 @@ struct HomeView: View {
     @State var isSearching = false
     
     func fetchData() {
-        for i in 10500...10599 {
+        for i in 10500...10519 {
             fetchItem(index: i)
         }
     }

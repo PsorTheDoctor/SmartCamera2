@@ -25,6 +25,8 @@
 		CEB1AF97276F0AB60024816E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1AF96276F0AB60024816E /* Item.swift */; };
 		CEB1AF99276F0B6A0024816E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1AF98276F0B6A0024816E /* SearchBar.swift */; };
 		CEB1AF9C276F0CAE0024816E /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1AF9B276F0CAE0024816E /* URLImage.swift */; };
+		CEBF8CFC2773BDA4001DB14A /* CamerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF8CFB2773BDA4001DB14A /* CamerModel.swift */; };
+		CEBF8CFE2773BDB4001DB14A /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF8CFD2773BDB4001DB14A /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		CEB1AF96276F0AB60024816E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CEB1AF98276F0B6A0024816E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CEB1AF9B276F0CAE0024816E /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		CEBF8CFB2773BDA4001DB14A /* CamerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerModel.swift; sourceTree = "<group>"; };
+		CEBF8CFD2773BDB4001DB14A /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +120,11 @@
 		CE6D40D9275EC91600248313 /* SmartCamera2 */ = {
 			isa = PBXGroup;
 			children = (
+				CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */,
 				CEB1AF9E276F0E580024816E /* Settings */,
 				CEB1AF9D276F0E2C0024816E /* Camera */,
 				CEB1AF9A276F0C250024816E /* Home */,
 				CE1344BD27601E6400DDF9B6 /* ContentView.swift */,
-				CE169799275F983900DA4D65 /* SqueezeNet.mlmodel */,
 				CE6D40DA275EC91600248313 /* SmartCamera2App.swift */,
 				CE6D40DE275EC91700248313 /* Assets.xcassets */,
 				CE6D40E0275EC91700248313 /* Preview Content */,
@@ -172,6 +176,8 @@
 				CEB1AF8A276ED43D0024816E /* ImagePicker.swift */,
 				CEB1AF92276EEFED0024816E /* CameraView.swift */,
 				CEB1AF94276EF57B0024816E /* SpeechService.swift */,
+				CEBF8CFB2773BDA4001DB14A /* CamerModel.swift */,
+				CEBF8CFD2773BDB4001DB14A /* CameraPreview.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBF8CFE2773BDB4001DB14A /* CameraPreview.swift in Sources */,
 				CEB1AF8F276EE4AA0024816E /* ImageClassifier.swift in Sources */,
 				CEB1AF8D276EDC650024816E /* Classifier.swift in Sources */,
 				CE16979A275F983900DA4D65 /* SqueezeNet.mlmodel in Sources */,
@@ -322,6 +329,7 @@
 				CEB1AF9C276F0CAE0024816E /* URLImage.swift in Sources */,
 				CEB1AF99276F0B6A0024816E /* SearchBar.swift in Sources */,
 				CEB1AF8B276ED43D0024816E /* ImagePicker.swift in Sources */,
+				CEBF8CFC2773BDA4001DB14A /* CamerModel.swift in Sources */,
 				CEB1AF97276F0AB60024816E /* Item.swift in Sources */,
 				CE1344C2276020E800DDF9B6 /* SettingsView.swift in Sources */,
 				CEB1AF95276EF57B0024816E /* SpeechService.swift in Sources */,
