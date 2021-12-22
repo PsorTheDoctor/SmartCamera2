@@ -54,14 +54,28 @@ struct SettingsView: View {
                         Button(action: rate) {
                             Text("Rate")
                             Image(systemName: "star")
-                                .font(.largeTitle)
+                                .font(.title)
                         }
                         .background(mint)
                         .cornerRadius(10)
                         .foregroundColor(.white)
                     }
+                }.padding(10)
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text("Frequenty asked questions")
+                            .font(.title)
+                            .padding(.bottom)
+                        Text("How does it work?").bold()
+                        Text("We use machine learning methods called convolutional neural networks to recognize images.\n").foregroundColor(.gray)
+                        Text("My app has been crashed while using a camera. What should I do?").bold()
+                        Text("Try to reinstall the app, it usually helps. It seems like a reason of this problem occurs in the SwiftUI code. The same object detection system was working well, even in real-time with older version of Swift.\n").foregroundColor(.gray)
+                        Text("Contact").bold()
+                        Text("adwol21@student.sdu.dk")
+                    }
+                    .padding()
                 }
-                Spacer()
             }.navigationTitle("Settings")
         }
     }

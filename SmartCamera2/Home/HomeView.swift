@@ -49,8 +49,8 @@ struct HomeView: View {
                                 VStack {
                                     Text("\(elem.title)").bold()
                                     URLImage(urlString: elem.primaryImageSmall)
-                                    Text("\(elem.artistDisplayName)")
-                                    Text("\(elem.creditLine)")
+                                    Text("\(elem.artistDisplayName)").foregroundColor(.gray)
+                                    Text("\(elem.creditLine)").foregroundColor(.gray)
                                 }.padding(3)
                             }
                         }

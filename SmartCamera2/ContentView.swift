@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let mint = Color(red: 0.2, green: 0.6, blue: 0.4)
+
+    
     init() {
         UITabBar.appearance().barTintColor = .systemBackground
+        // UITabBar.appearance().unselectedItemTintColor = .white
     }
     
     var body: some View {
@@ -28,7 +32,7 @@ struct ContentView: View {
                 Image(systemName: "gear")
                 Text("Settings")
             }
-        }
+        }.accentColor(mint)
     }
 }
 
